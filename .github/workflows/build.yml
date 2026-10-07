@@ -15,6 +15,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Fetch Git Tags & Fix Ownership
+      run: |
+        git config --global --add safe.directory "*"
+        git fetch --tags --force || true
+
     - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
